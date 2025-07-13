@@ -1,28 +1,90 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <title>Yuto & Hikari Wedding Invitation</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      font-family: sans-serif;
-      text-align: center;
-      padding: 50px;
-      background: #fff8f0;
-    }
-    h1 {
-      font-size: 2em;
-      margin-bottom: 0.2em;
-    }
-    p {
-      font-size: 1.2em;
-    }
-  </style>
-</head>
-<body>
-  <h1>Yuto & Hikari</h1>
-  <p>Wedding Invitation<br>2025年10月20日（日）</p>
-  <p>詳細は後日公開予定です。</p>
-</body>
+	<head>
+		<meta charset="UTF-8">
+		<title>Ryo & Mayu Wedding Invitation</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script>
+		  (function(d) {
+			var config = {
+			  kitId: 'xnk8kvi',
+			  scriptTimeout: 3000,
+			  async: true
+			},
+			h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+		  })(document);
+		</script>
+	</head>
+	<body>
+
+		<div class="mv">
+			<img class="mv_img" href="https://raw.githubusercontent.com/runnningbanana/wedding-invitation/refs/heads/main/images/mv.webp" alt="結婚ありがとう">
+			<div class="wrapper">
+				<h1 class="mv_ttl"><img href="https://raw.githubusercontent.com/runnningbanana/wedding-invitation/refs/heads/main/images/mv_ttl.svg" alt="WEDDING DAY 22 November 2025 Ryo&Mayu"></h1>
+				<div class="countdown">
+					<h2>COUNT DOWN</h2>
+					<div class="flex-box">
+						<div class="box">
+							<div class="num">0</div>
+							<span>DAYS</span>
+						</div>
+						<div class="box">
+							<div class="num">0</div>
+							<span>HOURS</span>
+						</div>
+						<div class="box">
+							<div class="num">0</div>
+							<span>MINUTES</span>
+						</div>
+						<div class="box">
+							<div class="num">0</div>
+							<span>SECONDS</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</body>
 </html>
+
+<style>
+	html{
+		background-color: #000;
+	}
+	body{
+		position: relative;
+		font-family: fot-tsukuaoldmin-pr6n, garamond-premier-pro-display, sans-serif;
+		max-width: 480px;
+		margin: 0 auto;
+	}
+	
+</style>
+
+<script>
+  // 結婚式の日付をここで指定
+  const targetDate = new Date("2025-11-22T13:00:00");
+
+  function updateCountdown() {
+    const now = new Date();
+    const diff = targetDate - now;
+
+    if (diff <= 0) {
+      document.getElementById("countdown").innerHTML = "It's time!";
+      return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+
+    document.getElementById("days").textContent = days;
+    document.getElementById("hours").textContent = hours;
+    document.getElementById("minutes").textContent = minutes;
+    document.getElementById("seconds").textContent = seconds;
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+</script>
