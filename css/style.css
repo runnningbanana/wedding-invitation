@@ -15,7 +15,7 @@ img {
 
 .wrapper {
   max-width: 100%;
-  padding: 20px;
+  padding: 0 20px;
 }
 
 .flex-box {
@@ -79,7 +79,7 @@ img {
 }
 .mv .wrapper {
   position: absolute;
-  bottom: 20px;
+  bottom: 45px;
   left: 50%;
   transform: translateX(-50%);
   width: 90%;
@@ -117,4 +117,16 @@ img {
 .countdown ._item span {
   font-size: 11px;
   letter-spacing: 0.1em;
+}
+
+.message {
+  background: #fff;
+  text-align: center;
+  padding: 40px 0;
+  font-size: 14px;
+  line-height: 2;
+}
+.message .ten {
+  max-width: 150px;
+  margin: 30px auto 0;
 }/*# sourceMappingURL=style.css.map */
