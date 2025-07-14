@@ -1,3 +1,8 @@
+
+    
+    
+    
+    /* ====== CUSTOM CSS ====== */
     html {
         background-color: #000;
     }
@@ -20,6 +25,35 @@
     .flex-box {
         display: flex;
     }
+    h2{
+        font-size: 40px;
+        letter-spacing: .05em;
+        text-align: center;
+        font-weight: 400;
+        margin-top: 0;
+        margin-bottom: .25em;
+    }
+    p{
+        font-size: 14px;
+        line-height: 2;
+    }
+
+        table{
+            width: 100%;
+            font-size: 14px;;
+            th, td{
+                text-align: left;
+                vertical-align: top;
+            }
+            th{
+                width: 70px;
+                font-weight: normal;
+            }
+            td{
+                line-height: 2;
+            }
+        }
+    
     
 @keyframes fadeInUp {
   0% {
@@ -89,6 +123,33 @@
             letter-spacing: 0.1em;
             margin-bottom: 20px;
         }
+        .countdown-finished{
+            text-align: center;
+            font-size: 36px;
+            animation: rainbow-blink 2s linear infinite, pulse 1s ease-in-out infinite;
+            font-weight: bold;
+            display: inline-block;
+        }
+       @keyframes rainbow-blink {
+  0%   { color: red; }
+  16%  { color: orange; }
+  32%  { color: yellow; }
+  48%  { color: green; }
+  64%  { color: blue; }
+  80%  { color: indigo; }
+  100% { color: violet; }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.5;
+  }
+}
         ._item{
             width: 25%;
             .num{
@@ -112,5 +173,130 @@
         .ten{
             max-width: 150px;
             margin: 30px auto 0;
+        }
+    }
+
+    .info{
+        background-color: #998f99;
+        color: #fff;
+        padding: 30px 0 0;
+        .wrapper{
+            padding-bottom: 40px;
+        }
+        iframe{
+            width: 100%;
+            height: 200px;
+            border: none;
+            display: block;
+            vertical-align: bottom;
+        }
+    }
+
+    .dresscode{
+        background-color: #fff;
+        padding-bottom: 65px;;
+        overflow: hidden;
+        .bg{
+            background-color: #998181;
+            color: #fff;
+            position: relative;
+            aspect-ratio: 100 / 145;
+            padding-top: 30px;
+        }
+        p{
+            text-align: center;;
+        }
+        .media{
+            position: absolute;
+            bottom: -65px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 111%;
+        }
+    }
+
+    .nijikai{
+        color: #fff;
+        .ttl_sec{
+            background-image: url('../images/nijikai_bg.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            aspect-ratio: 1 / 1;
+            position: relative;
+            h2{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 240px;
+            }
+            &:after{
+                content: "";
+                display: block;
+                width: 130px;
+                height: 120px;
+                background-image: url("../images/gif01.gif");
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                position: absolute;
+                bottom: -60px;
+                right: 0;
+            }
+        }
+        .map{
+            margin-top: 30px;
+            iframe{
+                width: 100%;
+                height: 200px;
+                border: none;
+                display: block;
+                vertical-align: bottom;
+            }
+        }
+            .knockout{
+                width: 150px;
+                display: block;
+                margin: 70px auto 40px;
+            }
+    }
+
+    footer{
+        color: #fff;
+        .bg{
+            background-image: url('../images/footer.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            aspect-ratio: 2251 / 3202;
+            padding-top: 20px;
+            position: relative;
+            &::before {
+            content: "";
+                position: absolute;
+                inset: 0; /* top: 0; right: 0; bottom: 0; left: 0; と同じ */
+                background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
+                mix-blend-mode: multiply;
+                pointer-events: none; /* クリックを透過 */
+                height: 230px;
+                z-index: 0;
+            }
+        }
+        h2{
+            line-height: 1;;
+        }
+        .flex-box{
+            gap: 10px;;
+            .item{
+                width: 50%;
+            }
+        }
+        .copyright{
+            text-align: center;
+            font-size: 11px;
+            letter-spacing: .05em;
+            padding: .5em 0;
+            color: #ccc;
         }
     }
