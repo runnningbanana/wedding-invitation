@@ -289,6 +289,42 @@ table td {
   margin: 70px auto 40px;
 }
 
+.form {
+  background-color: #fff;
+  padding: 30px 0;
+}
+.form .wrapper {
+  padding-bottom: 40px;
+}
+.form h2 {
+  font-size: 16px;
+  letter-spacing: 0.1em;
+  margin-bottom: 20px;
+}
+.form form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.form form input, .form form textarea {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+.form form textarea {
+  height: 100px;
+}
+.form form button {
+  background-color: #998f99;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
 footer {
   color: #fff;
 }
