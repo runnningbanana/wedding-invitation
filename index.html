@@ -4,6 +4,18 @@
 		<meta charset="UTF-8">
 		<title>Ryo & Mayu Wedding Invitation</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="./css/style.css">
+		<link rel="icon" href="./images/favicon.ico" type="image/x-icon">
+		<link rel="apple-touch-icon" href="./images/apple-touch-icon.png">
+		<meta name="description" content="Ryo and Mayu's wedding invitation page. Join us in celebrating our special day on November 22, 2025.">
+		<meta name="keywords" content="wedding, invitation, Ryo, Mayu, countdown, marriage, celebration">
+		<meta name="author" content="Ryo & Mayu">
+		<meta property="og:title" content="Ryo & Mayu Wedding Invitation">
+		<meta property="og:description" content="Join us in celebrating our wedding on November 22, 2025.">
+		<meta property="og:image" content="./images/mv.webp">
+		<meta property="og:url" content="https://runnningbanana.github.io/wedding-invitation/">
+		<meta property="og:type" content="website">
+		<link rel="canonical" href="https://runnningbanana.github.io/wedding-invitation/">
 		<script>
 		  (function(d) {
 			var config = {
@@ -18,26 +30,25 @@
 	<body>
 
 		<div class="mv">
-			<img class="mv_img" src="./images/mv.webp" alt="結婚ありがとう">
 			<div class="wrapper">
-				<h1 class="mv_ttl"><img src="./images/mv_ttl.svg" alt="WEDDING DAY 22 November 2025 Ryo&Mayu"></h1>
-				<div class="countdown">
+				<h1 class="mv_ttl fade-in-up delay-3"><img src="./images/mv_ttl.svg" alt="WEDDING DAY 22 November 2025 Ryo&Mayu"></h1>
+				<div class="countdown fade-in-up delay-5">
 					<h2>COUNT DOWN</h2>
-					<div class="flex-box">
-						<div class="box">
-							<div class="num">0</div>
-							<span>DAYAAS</span>
+					<div id="countdown" class="flex-box">
+						<div class="_item">
+							<div id="days" class="num">0</div>
+							<span>DAYS</span>
 						</div>
-						<div class="box">
-							<div class="num">0</div>
+						<div class="_item">
+							<div id="hours" class="num">0</div>
 							<span>HOURS</span>
 						</div>
-						<div class="box">
-							<div class="num">0</div>
+						<div class="_item">
+							<div id="minutes" class="num">0</div>
 							<span>MINUTES</span>
 						</div>
-						<div class="box">
-							<div class="num">0</div>
+						<div class="_item">
+							<div id="seconds" class="num">0</div>
 							<span>SECONDS</span>
 						</div>
 					</div>
@@ -48,46 +59,7 @@
 	</body>
 </html>
 
-<style>
-	html{
-		background-color: #000;
-	}
-	body{
-		position: relative;
-		font-family: fot-tsukuaoldmin-pr6n, garamond-premier-pro-display, sans-serif;
-		max-width: 480px;
-		margin: 0 auto;
-	}
-	.mv{
-		color: #fff;
-		text-align: center;
-	}
-	img{
-		max-width: 100%;
-	}
-	.mv_img{
-		position: absolute;
-		width: 100%;
-		top: 0;
-		left: 0;
-		z-index: -1;
-	}
-	.wrapper{
-		max-width: 100%;
-		padding: 20px;
-	}
-	.mv_ttl{
-		margin-top: 59vh;
-	}
-	.countdown h2{
-		font-size: 26px;
-		letter-spacing: .01em;
-		margin-bottom: 20px;
-	}
-	.flex-box{
-		display: flex;
-	}
-</style>
+
 
 <script>
   // 結婚式の日付をここで指定
@@ -115,4 +87,23 @@
 
   updateCountdown();
   setInterval(updateCountdown, 1000);
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const targets = document.querySelectorAll('.fade-in-up');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target); // 1回だけ発火させる場合
+        }
+      });
+    }, {
+      threshold: 0.1, // 画面に10%入ったら発火
+    });
+
+    targets.forEach((el) => observer.observe(el));
+  });
 </script>
