@@ -1,4 +1,12 @@
 @charset "UTF-8";
+html.wf-loading body {
+  visibility: hidden;
+}
+
+html.wf-active body {
+  visibility: visible;
+}
+
 /* ====== CUSTOM CSS ====== */
 html {
   background-color: #000;

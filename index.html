@@ -1,21 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
 	<head>
-		<meta charset="UTF-8">
-		<title>Ryo & Mayu Wedding Invitation</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="./css/style.css">
-		<link rel="icon" href="./images/favicon.ico" type="image/x-icon">
-		<link rel="apple-touch-icon" href="./images/apple-touch-icon.png">
-		<meta name="description" content="Ryo and Mayu's wedding invitation page. Join us in celebrating our special day on November 22, 2025.">
-		<meta name="keywords" content="wedding, invitation, Ryo, Mayu, countdown, marriage, celebration">
-		<meta name="author" content="Ryo & Mayu">
-		<meta property="og:title" content="Ryo & Mayu Wedding Invitation">
-		<meta property="og:description" content="Join us in celebrating our wedding on November 22, 2025.">
-		<meta property="og:image" content="./images/mv.webp">
-		<meta property="og:url" content="https://runnningbanana.github.io/wedding-invitation/">
-		<meta property="og:type" content="website">
-		<link rel="canonical" href="https://runnningbanana.github.io/wedding-invitation/">
 		<script>
 		  (function(d) {
 			var config = {
@@ -26,6 +11,21 @@
 			h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
 		  })(document);
 		</script>
+		<meta charset="UTF-8">
+		<title>Wedding Invitation | Ryo & Mayu</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="./css/style.css">
+		<link rel="icon" href="./images/favicon.ico" type="image/x-icon">
+		<link rel="apple-touch-icon" href="./images/apple-touch-icon.png">
+		<meta name="description" content="私たちの結婚式にご招待します。2025年11月22日、葛西臨海公園での挙式と披露宴にぜひお越しください。">
+		<meta name="keywords" content="wedding, invitation, Ryo, Mayu, countdown, marriage, celebration">
+		<meta name="author" content="Ryo & Mayu">
+		<meta property="og:title" content="Wedding Invitation | Ryo & Mayu">
+		<meta property="og:description" content="私たちの結婚式にご招待します。2025年11月22日、葛西臨海公園での挙式と披露宴にぜひお越しください。">
+		<meta property="og:image" content="./images/mv.webp">
+		<meta property="og:url" content="https://runnningbanana.github.io/wedding-invitation/">
+		<meta property="og:type" content="website">
+		<link rel="canonical" href="https://runnningbanana.github.io/wedding-invitation/">
 	</head>
 	<body>
 
@@ -169,51 +169,12 @@
 		</section>
 		<section class="form">
 			<div class="wrapper">
-				<form id="myForm">
-					<h3>ご出欠</h3>
-					<input type="text" name="name" placeholder="お名前" required>
-					<h3>メッセージ</h3>
-					<textarea name="message" placeholder="メッセージ" required></textarea>
-					<button type="submit">送信</button>
-				</form>
-				<div id="status"></div>
-
-				<script>
-					const form = document.getElementById("myForm");
-					const statusDiv = document.getElementById("status");
-
-					form.addEventListener("submit", async (e) => {
-					e.preventDefault();
-
-					const formData = {
-						name: form.name.value,
-						message: form.message.value
-					};
-
-					try {
-						const res = await fetch("https://script.google.com/macros/s/AKfycbwJIghWOaLl1dhUHhhDLy8IPjbPLNkvV-YEcAzhLpOVhk8E_liNCFzmnpw4n74dNtWV/exec", {
-						method: "POST",
-						body: JSON.stringify(formData),
-						headers: {
-							"Content-Type": "application/json"
-						}
-						});
-
-						const result = await res.json();
-
-						if (result.status === "success") {
-						statusDiv.textContent = "送信しました！ありがとう😊";
-						form.reset();
-						} else {
-						statusDiv.textContent = "送信に失敗しました。";
-						}
-					} catch (err) {
-						statusDiv.textContent = "エラーが発生しました。";
-						console.error(err);
-					}
-					});
-				</script>
-
+				<script src="https://sdk.form.run/js/v2/embed.js"></script>
+				<div
+				class="formrun-embed"
+				data-formrun-form="@runnningbanana-nJNZyXm56Jyp803r0gWj"
+				data-formrun-redirect="true">
+				</div>
 			</div>
 		</section>
 

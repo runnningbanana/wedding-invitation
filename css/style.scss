@@ -1,5 +1,11 @@
 
-    
+    html.wf-loading body {
+  visibility: hidden;
+}
+
+html.wf-active body {
+  visibility: visible;
+}
     
     
     /* ====== CUSTOM CSS ====== */
