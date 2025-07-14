@@ -23,13 +23,16 @@
 	</head>
     <body>
         <div class="video-background">
-        <video autoplay loop playsinline>
+        <video id="bg-video" autoplay muted loop playsinline>
             <source src="./images/thanks_movie.webm" type="video/webm">
             お使いのブラウザは動画に対応していません。
         </video>
         <div class="content">
             <h1>ARIGATO</h1>
             <p>お会いできる日を楽しみにしております。</p>
+            <button id="mute-toggle" aria-label="サウンドを切り替え">
+                🔇
+            </button>
         </div>
         </div>
 	</body>
@@ -71,8 +74,38 @@
   padding-top: 40vh;
 }
 h1{
-    font-size: 15vw;
+    font-size: 44px;
     line-height: 1;
     margin: 0 auto .2em;
 }
+#mute-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(0,0,0,0.5);
+  color: white;
+  font-size: 20px;
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  z-index: 999;
+}
 </style>
+<script>
+  const video = document.getElementById("bg-video");
+  const toggleBtn = document.getElementById("mute-toggle");
+
+  toggleBtn.addEventListener("click", () => {
+    // ユーザー操作で再生されるように
+    if (video.paused) {
+      video.play();
+    }
+
+    video.muted = !video.muted;
+
+    // アイコン切り替え
+    toggleBtn.textContent = video.muted ? "🔇" : "🔊";
+  });
+</script>
