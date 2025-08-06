@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 	<head>
+		<link rel="preload" as="image" href="./images/mv.webp" imagesrcset="./images/mv.webp 1x" fetchpriority="high">
 		<script>
 		  (function(d) {
 			var config = {
@@ -30,8 +31,8 @@
 
 		<div class="mv">
 			<div class="wrapper">
-				<h1 class="mv_ttl fade-in-up delay-3"><img src="./images/mv_ttl.svg" alt="WEDDING DAY 22 November 2025 Ryo&Mayu"></h1>
-				<div class="countdown fade-in-up delay-5">
+				<h1 class="mv_ttl fv-fade-in"><img src="./images/mv_ttl.svg" alt="WEDDING DAY 22 November 2025 Ryo&Mayu"></h1>
+				<div class="countdown fv-fade-in">
 					<h2>COUNT DOWN</h2>
 					<div id="countdown" class="flex-box">
 						<div class="_item">
@@ -237,20 +238,42 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const targets = document.querySelectorAll('.fade-in-up');
+    const fadeInTargets = document.querySelectorAll('.fade-in-up');
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('in-view');
-          observer.unobserve(entry.target); // 1回だけ発火させる場合
         }
       });
     }, {
-      threshold: 0.1, // 画面に10%入ったら発火
+      threshold: 0.1
     });
 
-    targets.forEach((el) => observer.observe(el));
+    fadeInTargets.forEach(el => {
+      observer.observe(el);
+    });
+
+    // 強制的に最初の要素の位置を確認
+    setTimeout(() => {
+      fadeInTargets.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        const inView = rect.top < window.innerHeight && rect.bottom > 0;
+        if (inView) {
+          el.classList.add('in-view');
+        }
+      });
+    }, 100);
+
+    // コインの回転処理
+    document.querySelectorAll('.coin').forEach(img => {
+      img.addEventListener('click', () => {
+        img.classList.add('flip');
+        img.addEventListener('animationend', () => {
+          img.classList.remove('flip');
+        }, { once: true });
+      });
+    });
   });
 </script>
 
@@ -316,5 +339,10 @@
         img.classList.remove('flip');
       }, { once: true });
     });
+  });
+</script>
+<script>
+  window.addEventListener('load', () => {
+    document.querySelector('.mv')?.classList.add('loaded');
   });
 </script>

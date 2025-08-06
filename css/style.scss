@@ -1,4 +1,24 @@
 
+@keyframes fvFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fv-fade-in {
+  opacity: 0;
+  animation: fvFadeIn 1s ease-out forwards;
+}
+
+.mv.loaded .fv-fade-in {
+  opacity: 1;
+}
+
     html.wf-loading body {
   visibility: hidden;
 }
@@ -343,3 +363,4 @@ html.wf-active body {
             color: #ccc;
         }
     }
+
