@@ -1,4 +1,23 @@
 @charset "UTF-8";
+@keyframes fvFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.fv-fade-in {
+  opacity: 0;
+  animation: fvFadeIn 1s ease-out forwards;
+}
+
+.mv.loaded .fv-fade-in {
+  opacity: 1;
+}
+
 html.wf-loading body {
   visibility: hidden;
 }
@@ -39,6 +58,13 @@ h2 {
   font-weight: 400;
   margin-top: 0;
   margin-bottom: 0.25em;
+  line-height: 1.2;
+}
+
+h3 {
+  font-size: 18px;
+  line-height: 1.2;
+  margin-bottom: 0.5em;
 }
 
 p {
@@ -214,7 +240,7 @@ table td {
 .info {
   background-color: #998f99;
   color: #fff;
-  padding: 30px 0 0;
+  padding: 50px 0 0;
 }
 .info .wrapper {
   padding-bottom: 40px;
@@ -226,10 +252,51 @@ table td {
   display: block;
   vertical-align: bottom;
 }
+.info.location {
+  background-color: #8e9991;
+}
+.info.location p {
+  margin-top: 0;
+}
+.info.location .info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.info.location .info-list .info-item {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 2rem;
+}
+.info.location .info-list .info-item:not(:last-child) {
+  border-bottom: 1px solid #ccc;
+}
+.info.location .info-list .info-item .info-text {
+  margin-bottom: 1rem;
+}
+.info.location .info-list .info-item .info-text .info-title {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+.info.location .info-list .info-item .info-text p {
+  margin: 0;
+}
+.info.location .info-list .info-item .info-media {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.info.location .info-list .info-item .info-media img {
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
 
 .dresscode {
   background-color: #fff;
-  padding-bottom: 65px;
+  /*padding-bottom: 65px; */
   overflow: hidden;
 }
 .dresscode .bg {
@@ -237,14 +304,14 @@ table td {
   color: #fff;
   position: relative;
   aspect-ratio: 100/145;
-  padding-top: 30px;
+  padding-top: 50px;
 }
 .dresscode p {
   text-align: center;
 }
 .dresscode .media {
   position: absolute;
-  bottom: -65px;
+  bottom: 0;
   left: 50%;
   transform: translateX(-50%);
   width: 111%;
@@ -280,6 +347,17 @@ table td {
   position: absolute;
   bottom: -60px;
   right: 0;
+}
+.nijikai .section-title {
+  font-size: 22px;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+.nijikai .image-gallery img {
+  aspect-ratio: 16/9;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .nijikai .map {
   margin-top: 30px;

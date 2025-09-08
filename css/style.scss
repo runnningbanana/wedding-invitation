@@ -58,6 +58,12 @@ html.wf-active body {
         font-weight: 400;
         margin-top: 0;
         margin-bottom: .25em;
+        line-height: 1.2;
+    }
+    h3{
+        font-size: 18px;
+        line-height: 1.2;
+        margin-bottom: .5em;
     }
     p{
         font-size: 14px;
@@ -205,7 +211,7 @@ html.wf-active body {
     .info{
         background-color: #998f99;
         color: #fff;
-        padding: 30px 0 0;
+        padding: 50px 0 0;
         .wrapper{
             padding-bottom: 40px;
         }
@@ -216,25 +222,71 @@ html.wf-active body {
             display: block;
             vertical-align: bottom;
         }
+        &.location{
+            background-color: #8e9991;
+            p{
+                margin-top: 0;
+            }
+            .info-list {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+
+                .info-item {
+                    display: flex;
+                    flex-direction: column;
+                    &:not(:last-child) {
+                    border-bottom: 1px solid #ccc;
+                    }
+                    padding-bottom: 2rem;
+
+                    .info-text {
+                    margin-bottom: 1rem;
+
+                    .info-title {
+                        font-size: 1.2rem;
+                        margin-bottom: 0.5rem;
+                    }
+
+                    p {
+                        margin: 0;
+                    }
+                    }
+
+                    .info-media {
+                    display: flex;
+                    gap: 1rem;
+                    flex-wrap: wrap;
+
+                    img {
+                        max-width: 100%;
+                        height: auto;
+                            aspect-ratio: 16 / 9;
+    object-fit: cover;
+                    }
+                    }
+                }
+                }
+        }
     }
 
     .dresscode{
         background-color: #fff;
-        padding-bottom: 65px;;
+        /*padding-bottom: 65px; */
         overflow: hidden;
         .bg{
             background-color: #998181;
             color: #fff;
             position: relative;
             aspect-ratio: 100 / 145;
-            padding-top: 30px;
+            padding-top: 50px;
         }
         p{
             text-align: center;;
         }
         .media{
             position: absolute;
-            bottom: -65px;
+            bottom: 0;
             left: 50%;
             transform: translateX(-50%);
             width: 111%;
@@ -269,6 +321,18 @@ html.wf-active body {
                 position: absolute;
                 bottom: -60px;
                 right: 0;
+            }
+        }
+        .section-title{
+            font-size: 22px;
+            margin-top: 50px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .image-gallery{
+            img{
+                    aspect-ratio: 16 / 9;
+    object-fit: cover;
             }
         }
         .map{
