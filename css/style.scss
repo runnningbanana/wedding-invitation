@@ -428,3 +428,41 @@ html.wf-active body {
         }
     }
 
+// 変数定義
+$black: #000;
+$loader-size: 100px;
+$fade-duration: 1s;
+
+
+// ローディング画面
+#loader {
+  position: fixed;
+  inset: 0;
+  background: $black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity $fade-duration ease;
+
+  &.fade-out {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .loader-image {
+    width: $loader-size;
+    height: $loader-size;
+    animation: spinLoop 2s linear infinite;
+  }
+}
+
+// ロゴ回転アニメーション
+@keyframes spinLoop {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -29,6 +29,12 @@
 	</head>
 	<body>
 
+		<!-- ローディング画面 -->
+		<div id="loader">
+			<img src="./images/ten.webp" alt="Loading" class="loader-image">
+		</div>
+
+		<main style="display: none;">
 		<div class="mv">
 			<div class="wrapper">
 				<h1 class="mv_ttl fv-fade-in"><img src="./images/mv_ttl.svg" alt="WEDDING DAY 22 November 2025 Ryo&Mayu"></h1>
@@ -266,9 +272,7 @@
 			</div>
 			<div class="copyright">© 2025 SugioYamasugi. All rights reserved.</div>
 		</footer>
-
-
-
+		</main>
 
 	</body>
 </html>
@@ -413,4 +417,22 @@
   window.addEventListener('load', () => {
     document.querySelector('.mv')?.classList.add('loaded');
   });
+</script>
+
+<script>
+window.addEventListener("load", () => {
+  const loader = document.getElementById("loader");
+  const main = document.querySelector("main");
+
+  // フェードアウト
+  setTimeout(() => {
+    loader.classList.add("fade-out");
+    // 本文表示
+    main.style.display = "block";
+    // ローダー削除（任意）
+    setTimeout(() => {
+      loader.remove();
+    }, 1000); // フェードアウトの遅延と同じにする
+  }, 1000); // ページ読み込み後すぐに開始してもOK（1秒でフェードアウト）
+});
 </script>
