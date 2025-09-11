@@ -31,9 +31,14 @@ html {
   background-color: #000;
 }
 
+html.wf-loading body,
+html.wf-inactive body {
+  font-family: "Georgia", serif;
+}
+
 body {
   position: relative;
-  font-family: fot-tsukuaoldmin-pr6n, garamond-premier-pro-display, sans-serif;
+  font-family: "fot-tsukuaoldmin-pr6n", "Garamond Premier Pro Display", "EB Garamond", "Georgia", serif;
   max-width: 480px;
   margin: 0 auto;
 }
@@ -481,4 +486,52 @@ footer .copyright {
   100% {
     transform: rotate(360deg);
   }
+}
+/* 初期状態：非表示 */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* 画面に入ったらフェードイン＋ふわふわ開始 */
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+  animation: float 3s ease-in-out infinite;
+}
+
+/* ふわふわアニメーション */
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+/* タップ時の回転 */
+.coin.flip {
+  animation: coinFlip 0.6s ease;
+}
+
+/* コイン回転 */
+@keyframes coinFlip {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+/* コインスタイル調整 */
+.coin {
+  width: 120px;
+  cursor: pointer;
+  display: inline-block;
+  transition: transform 0.3s;
+  will-change: transform;
 }/*# sourceMappingURL=style.css.map */
