@@ -299,11 +299,6 @@ table td {
      object-fit: cover;
 }
 
-.dresscode {
-  background-color: #fff;
-  /*padding-bottom: 65px; */
-  overflow: hidden;
-}
 .dresscode .bg {
   background-color: #998181;
   color: #fff;
@@ -313,13 +308,6 @@ table td {
 }
 .dresscode p {
   text-align: center;
-}
-.dresscode .media {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 111%;
 }
 
 .nijikai {

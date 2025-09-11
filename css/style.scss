@@ -280,9 +280,6 @@ html.wf-active body {
     }
 
     .dresscode{
-        background-color: #fff;
-        /*padding-bottom: 65px; */
-        overflow: hidden;
         .bg{
             background-color: #998181;
             color: #fff;
@@ -292,13 +289,6 @@ html.wf-active body {
         }
         p{
             text-align: center;;
-        }
-        .media{
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 111%;
         }
     }
 
