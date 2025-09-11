@@ -1,85 +1,60 @@
+// ===== カウントダウン =====
+const targetDate = new Date("2025-11-22T13:00:00");
 
-  // 結婚式の日付をここで指定
-  const targetDate = new Date("2025-11-22T13:00:00");
+function updateCountdown() {
+  const now = new Date();
+  const diff = targetDate - now;
 
-  function updateCountdown() {
-    const now = new Date();
-    const diff = targetDate - now;
-
-    if (diff <= 0) {
-      document.getElementById("countdown").innerHTML = "TIME IS NOW!!";
-	  countdown.classList.add("countdown-finished");
-      return;
-    }
-
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    const minutes = Math.floor((diff / (1000 * 60)) % 60);
-    const seconds = Math.floor((diff / 1000) % 60);
-
-    document.getElementById("days").textContent = days;
-    document.getElementById("hours").textContent = hours;
-    document.getElementById("minutes").textContent = minutes;
-    document.getElementById("seconds").textContent = seconds;
+  const countdown = document.getElementById("countdown");
+  if (diff <= 0) {
+    countdown.innerHTML = "TIME IS NOW!!";
+    countdown.classList.add("countdown-finished");
+    return;
   }
 
-  updateCountdown();
-  setInterval(updateCountdown, 1000);
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((diff / (1000 * 60)) % 60);
+  const seconds = Math.floor((diff / 1000) % 60);
+
+  document.getElementById("days").textContent = days;
+  document.getElementById("hours").textContent = hours;
+  document.getElementById("minutes").textContent = minutes;
+  document.getElementById("seconds").textContent = seconds;
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
 
 
+// ===== DOM準備ができたら =====
+document.addEventListener('DOMContentLoaded', () => {
+  // フェードイン共通処理（fade-in-up と animate-on-scroll に対応）
+  const fadeTargets = document.querySelectorAll('.fade-in-up, .animate-on-scroll');
 
-  document.addEventListener('DOMContentLoaded', () => {
-    const fadeInTargets = document.querySelectorAll('.fade-in-up');
-
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-        }
-      });
-    }, {
-      threshold: 0.1
-    });
-
-    fadeInTargets.forEach(el => {
-      observer.observe(el);
-    });
-
-    // 強制的に最初の要素の位置を確認
-    setTimeout(() => {
-      fadeInTargets.forEach(el => {
-        const rect = el.getBoundingClientRect();
-        const inView = rect.top < window.innerHeight && rect.bottom > 0;
-        if (inView) {
-          el.classList.add('in-view');
-        }
-      });
-    }, 100);
-
-    // コインの回転処理
-    document.querySelectorAll('.coin').forEach(img => {
-      img.addEventListener('click', () => {
-        img.classList.add('flip');
-        img.addEventListener('animationend', () => {
-          img.classList.remove('flip');
-        }, { once: true });
-      });
-    });
-  });
-
-
-  // フェードイン＋ふわふわ用（Intersection Observer）
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
+        entry.target.classList.add('in-view', 'visible');
       }
     });
+  }, {
+    threshold: 0.1
   });
 
-  document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+  fadeTargets.forEach(el => observer.observe(el));
 
-  // タップ回転
+  // 初期スクロール位置でも表示されるようにチェック
+  setTimeout(() => {
+    fadeTargets.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        el.classList.add('in-view', 'visible');
+      }
+    });
+  }, 100);
+
+  // コイン回転処理
   document.querySelectorAll('.coin').forEach(img => {
     img.addEventListener('click', () => {
       img.classList.add('flip');
@@ -88,26 +63,21 @@
       }, { once: true });
     });
   });
+});
 
 
-  window.addEventListener('load', () => {
-    document.querySelector('.mv')?.classList.add('loaded');
-  });
+// ===== ページロード完了時（画像なども含む）=====
+window.addEventListener('load', () => {
+  // MVクラスのロード済み処理
+  document.querySelector('.mv')?.classList.add('loaded');
 
-
-
-window.addEventListener("load", () => {
+  // ローディングフェードアウト処理
   const loader = document.getElementById("loader");
   const main = document.querySelector("main");
 
-  // フェードアウト
   setTimeout(() => {
     loader.classList.add("fade-out");
-    // 本文表示
     main.style.display = "block";
-    // ローダー削除（任意）
-    setTimeout(() => {
-      loader.remove();
-    }, 1000); // フェードアウトの遅延と同じにする
-  }, 1000); // ページ読み込み後すぐに開始してもOK（1秒でフェードアウト）
+    setTimeout(() => loader.remove(), 1000);
+  }, 1000);
 });

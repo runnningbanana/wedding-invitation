@@ -440,8 +440,7 @@ html.wf-active body {
 // 変数定義
 $black: #000;
 $loader-size: 100px;
-$fade-duration: 1s;
-
+$fade-duration: .6s;
 
 // ローディング画面
 #loader {
@@ -452,16 +451,20 @@ $fade-duration: 1s;
   justify-content: center;
   align-items: center;
   z-index: 9999;
+  opacity: 1;
   transition: opacity $fade-duration ease;
 
+  // ロード完了時に非表示化
   &.fade-out {
     opacity: 0;
     pointer-events: none;
   }
 
+  // ローダー画像
   .loader-image {
     width: $loader-size;
     height: $loader-size;
+    will-change: transform;
     animation: spinLoop 2s linear infinite;
   }
 }
