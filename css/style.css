@@ -447,6 +447,10 @@ footer .copyright {
   color: #ccc;
 }
 
+main {
+  display: none;
+}
+
 #loader {
   position: fixed;
   inset: 0;

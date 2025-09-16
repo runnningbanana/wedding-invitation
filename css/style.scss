@@ -433,6 +433,9 @@ $loader-size: 100px;
 $fade-duration: .6s;
 
 // ローディング画面
+main{
+    display:none;
+}
 #loader {
   position: fixed;
   inset: 0;
