@@ -80,4 +80,4 @@ window.addEventListener('load', () => {
     main.style.display = "block";
     setTimeout(() => loader.remove(), 1000);
   }, 1000);
-});
+}); 
